@@ -1,0 +1,11 @@
+name: Test Github Actions
+run-name: ${{ github.actor}} is testing github actions
+on: push
+jobs:
+    Testing-Github-Actions:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "Hello, ${{ github.actor}}"
+            - run: echo "The event that triggered this action was ${{ github.event_name}}"
+            - run: echo "The branch that triggered this action was ${{ github.ref}}"
+            - run: echo "The repository that triggered this action was ${{ github.repository}}"

@@ -1,0 +1,19 @@
+name: Run Build Workflow
+run-name: Running build workflow
+on:
+    label: 
+        types: [created, edited]
+jobs:
+    Build-Label-Workflow:
+        if: github.event.label.name == 'build_project'
+        runs-on: ubuntu-latest
+        steps:
+        - name: Check out repository code
+          uses: actions/checkout@v4
+        - name: Install dependencies
+          run: npm install
+        - run: echo "The lable 'build_project' is added to ${{ github.event.issue.title }} event"
+        - name: Building the project
+          run: npm run build
+        - name: Run tests
+          run: npm run test

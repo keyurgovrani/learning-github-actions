@@ -2,7 +2,7 @@ name: Run Build Workflow
 run-name: Running build workflow
 on:
     label: 
-        types: [created, edited]
+        types: [created, edited, deleted]
 jobs:
     Build-Label-Workflow:
         if: github.event.label.name == 'build_project'
